@@ -1,0 +1,7 @@
+from core.encryption import encrypt_json
+
+encrypt_json({
+    "enabled": True,
+    "seconds": 10,
+    "show": True
+}, "config/countdown.enc")
