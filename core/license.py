@@ -2,7 +2,9 @@ import requests
 import time
 from core.hwid import get_hwid
 
-LICENSE_SERVER = "https://your-license-server.com/verify"
+# LICENSE_SERVER = "https://us-central1-whatsappsenderpro-3911f.cloudfunctions.net/verifyLicense"
+LICENSE_SERVER = "http://127.0.0.1:5001/whatsappsenderpro-3911f/us-central1/verifyLicense"
+
 
 class LicenseError(Exception):
     pass
@@ -17,9 +19,11 @@ class LicenseManager:
 
         payload = {
             "hwid": self.hwid,
-            "app": "WhatsAppSenderPro",
-            "version": "4.3.3"
+            "licenseKey": "LICENSE-001",  # أضف المفتاح الصحيح هنا
+            "app": "WhatsAppSenderPro"
         }
+
+
 
         try:
             r = requests.post(LICENSE_SERVER, json=payload, timeout=10)
